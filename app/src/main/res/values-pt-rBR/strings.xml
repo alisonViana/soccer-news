@@ -2,8 +2,8 @@
 <resources>
     <string name="app_name">Soccer News</string>
     <string name="text_news_thumbnail">Capa notícia</string>
-    <string name="title_home">Início</string>
-    <string name="title_dashboard">Lista</string>
+    <string name="title_favorites">Favoritos</string>
     <string name="text_share_button">Botão compartilhar</string>
     <string name="text_favorite_button">Botão favorito</string>
+    <string name="title_home">Início</string>
 </resources>

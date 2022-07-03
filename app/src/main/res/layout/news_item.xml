@@ -23,7 +23,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             tools:src="@tools:sample/backgrounds/scenic"
-            android:contentDescription="@string/text_news_thumbnail"
+            android:contentDescription="@string/label_news_thumbnail"
             />
 
         <com.google.android.material.textview.MaterialTextView
@@ -57,29 +57,32 @@
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginTop="@dimen/margin"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-            tools:text="Button"
+            android:text="@string/label_open_link"
             />
 
-        <ImageView
-            android:id="@+id/iv_favorite"
+        <ImageButton
+            android:id="@+id/ib_favorite"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="@id/btn_open_link"
             app:layout_constraintBottom_toBottomOf="@id/btn_open_link"
-            app:layout_constraintEnd_toStartOf="@id/iv_share"
+            app:layout_constraintEnd_toStartOf="@id/ib_share"
             android:src="@drawable/ic_favorite"
             android:layout_marginEnd="@dimen/margin"
-            android:contentDescription="@string/text_favorite_button" />
+            android:background="?attr/actionBarItemBackground"
+            android:contentDescription="@string/label_favorite_button"
+            />
 
-        <ImageView
-            android:id="@+id/iv_share"
+        <ImageButton
+            android:id="@+id/ib_share"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="@id/iv_favorite"
-            app:layout_constraintBottom_toBottomOf="@id/iv_favorite"
+            app:layout_constraintTop_toTopOf="@id/ib_favorite"
+            app:layout_constraintBottom_toBottomOf="@id/ib_favorite"
             app:layout_constraintEnd_toEndOf="parent"
             android:src="@drawable/ic_share"
-            android:contentDescription="@string/text_share_button" />
+            android:background="?attr/actionBarItemBackground"
+            android:contentDescription="@string/label_share_button" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

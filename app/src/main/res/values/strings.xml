@@ -2,7 +2,8 @@
     <string name="app_name" translatable="false">Soccer News</string>
     <string name="title_home">Home</string>
     <string name="title_favorites">Favorites</string>
-    <string name="text_news_thumbnail">News thumbnail</string>
-    <string name="text_favorite_button">Favorite button</string>
-    <string name="text_share_button">Share button</string>
+    <string name="label_news_thumbnail">News thumbnail</string>
+    <string name="label_favorite_button">Favorite button</string>
+    <string name="label_share_button">Share button</string>
+    <string name="label_open_link">Open link</string>
 </resources>

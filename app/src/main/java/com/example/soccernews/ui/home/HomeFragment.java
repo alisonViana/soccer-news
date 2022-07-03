@@ -1,21 +1,16 @@
 package com.example.soccernews.ui.home;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.soccernews.data.model.News;
 import com.example.soccernews.databinding.FragmentHomeBinding;
 import com.example.soccernews.ui.NewsListAdapter;
-
-import java.util.List;
 
 public class HomeFragment extends Fragment {
 
@@ -37,7 +32,7 @@ public class HomeFragment extends Fragment {
     }
 
     private void getNewsList() {
-        viewModel.getNewsList().observe(getViewLifecycleOwner(), list -> {
+        viewModel.getNews().observe(getViewLifecycleOwner(), list -> {
             adapter.submitList(list);
         });
     }

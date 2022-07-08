@@ -1,5 +1,7 @@
 package com.example.soccernews.ui;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.soccernews.data.model.News;
 import com.example.soccernews.databinding.NewsItemBinding;
+import com.squareup.picasso.Picasso;
 
 public class NewsListAdapter extends ListAdapter<News, NewsListAdapter.ViewHolder>{
 
@@ -44,6 +47,17 @@ public class NewsListAdapter extends ListAdapter<News, NewsListAdapter.ViewHolde
         void bind(News item){
             binding.tvTitle.setText(item.getTitle());
             binding.tvBody.setText(item.getDescription());
+
+            Picasso.get()
+                    .load(item.getImage())
+                    .fit()
+                    .into(binding.ivThumbnail);
+
+            binding.btnOpenLink.setOnClickListener(view -> {
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse(item.getLink()));
+                itemView.getContext().startActivity(intent);
+            });
         }
 
     }

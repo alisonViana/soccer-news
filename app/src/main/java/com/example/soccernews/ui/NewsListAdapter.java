@@ -1,6 +1,7 @@
 package com.example.soccernews.ui;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.soccernews.R;
 import com.example.soccernews.data.model.News;
 import com.example.soccernews.databinding.NewsItemBinding;
 import com.squareup.picasso.Picasso;
@@ -20,6 +22,8 @@ public class NewsListAdapter extends ListAdapter<News, NewsListAdapter.ViewHolde
     public NewsListAdapter() {
         super(new DiffCallBack());
     }
+
+    public FavoriteInterface favoriteInterface;
 
     @NonNull
     @Override
@@ -35,7 +39,7 @@ public class NewsListAdapter extends ListAdapter<News, NewsListAdapter.ViewHolde
         holder.bind(getItem(position));
     }
 
-    protected static class ViewHolder extends RecyclerView.ViewHolder {
+    protected class ViewHolder extends RecyclerView.ViewHolder {
         private final NewsItemBinding binding;
 
 
@@ -58,6 +62,15 @@ public class NewsListAdapter extends ListAdapter<News, NewsListAdapter.ViewHolde
                 intent.setData(Uri.parse(item.getLink()));
                 itemView.getContext().startActivity(intent);
             });
+            binding.ibShare.setOnClickListener(view -> {
+                Intent intent = new Intent(Intent.ACTION_SEND);
+                intent.setType("text/plain");
+                intent.putExtra(Intent.EXTRA_TITLE, item.getTitle());
+                intent.putExtra(Intent.EXTRA_TEXT, item.getLink());
+                itemView.getContext().startActivity(Intent.createChooser(intent,
+                        Resources.getSystem().getString(R.string.label_share)));
+            });
+
         }
 
     }

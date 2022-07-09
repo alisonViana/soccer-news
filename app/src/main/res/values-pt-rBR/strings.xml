@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Soccer News</string>
-    <string name="label_news_thumbnail">Capa notícia</string>
+    <string name="descr_news_thumbnail">Capa notícia</string>
     <string name="title_favorites">Favoritos</string>
-    <string name="label_share_button">Botão compartilhar</string>
-    <string name="label_favorite_button">Botão favorito</string>
+    <string name="descr_share_button">Botão compartilhar</string>
+    <string name="descr_favorite_button">Botão favorito</string>
     <string name="title_home">Início</string>
+    <string name="label_share">Compartilhar</string>
 </resources>

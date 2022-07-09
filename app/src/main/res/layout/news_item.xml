@@ -23,7 +23,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             tools:src="@tools:sample/backgrounds/scenic"
-            android:contentDescription="@string/label_news_thumbnail"
+            android:contentDescription="@string/descr_news_thumbnail"
             />
 
         <com.google.android.material.textview.MaterialTextView
@@ -70,7 +70,7 @@
             android:src="@drawable/ic_favorite"
             android:layout_marginEnd="@dimen/margin"
             android:background="?attr/actionBarItemBackground"
-            android:contentDescription="@string/label_favorite_button"
+            android:contentDescription="@string/descr_favorite_button"
             />
 
         <ImageButton
@@ -82,7 +82,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:src="@drawable/ic_share"
             android:background="?attr/actionBarItemBackground"
-            android:contentDescription="@string/label_share_button" />
+            android:contentDescription="@string/descr_share_button" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

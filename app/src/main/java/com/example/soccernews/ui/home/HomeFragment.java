@@ -23,10 +23,12 @@ public class HomeFragment extends Fragment {
 
         viewModel = new ViewModelProvider(this).get(HomeViewModel.class);
         binding = FragmentHomeBinding.inflate(inflater, container, false);
+        viewModel.setViewModelDependency(requireContext());
         adapter = new NewsListAdapter();
         binding.rvNews.setAdapter(adapter);
 
         getNewsList();
+        setListeners();
 
         return binding.getRoot();
     }
@@ -35,6 +37,12 @@ public class HomeFragment extends Fragment {
         viewModel.getNews().observe(getViewLifecycleOwner(), list -> {
             adapter.submitList(list);
         });
+    }
+
+    private void setListeners() {
+        adapter.favoriteInterface = news -> {
+            viewModel.setFavoriteNews(news);
+        };
     }
 
     @Override

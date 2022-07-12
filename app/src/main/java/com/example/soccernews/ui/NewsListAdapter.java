@@ -1,10 +1,8 @@
 package com.example.soccernews.ui;
 
 import android.content.Intent;
-import android.content.res.Resources;
 import android.net.Uri;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -12,7 +10,6 @@ import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.soccernews.R;
 import com.example.soccernews.data.model.News;
 import com.example.soccernews.databinding.NewsItemBinding;
 import com.squareup.picasso.Picasso;
@@ -67,8 +64,11 @@ public class NewsListAdapter extends ListAdapter<News, NewsListAdapter.ViewHolde
                 intent.setType("text/plain");
                 intent.putExtra(Intent.EXTRA_TITLE, item.getTitle());
                 intent.putExtra(Intent.EXTRA_TEXT, item.getLink());
-                itemView.getContext().startActivity(Intent.createChooser(intent,
-                        Resources.getSystem().getString(R.string.label_share)));
+                itemView.getContext().startActivity(Intent.createChooser(intent, "Share"));
+            });
+            binding.ibFavorite.setOnClickListener(view -> {
+                item.setFavorite(!item.getFavorite());
+                favoriteInterface.favoriteListener(item);
             });
 
         }

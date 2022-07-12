@@ -4,29 +4,45 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.soccernews.databinding.FragmentFavoritesBinding;
+import com.example.soccernews.ui.NewsListAdapter;
 
 public class FavoritesFragment extends Fragment {
 
     private FragmentFavoritesBinding binding;
+    private FavoritesViewModel viewModel;
+    private NewsListAdapter adapter;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        FavoritesViewModel dashboardViewModel =
-                new ViewModelProvider(this).get(FavoritesViewModel.class);
 
+        viewModel = new ViewModelProvider(this).get(FavoritesViewModel.class);
+        viewModel.setViewModelDependency(requireContext());
         binding = FragmentFavoritesBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
+        adapter = new NewsListAdapter();
+        binding.rvNews.setAdapter(adapter);
 
-        final TextView textView = binding.textDashboard;
-        dashboardViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
-        return root;
+        getFavoriteList();
+        setListeners();
+
+        return binding.getRoot();
+    }
+
+    private void getFavoriteList() {
+        viewModel.getFavoriteList().observe(getViewLifecycleOwner(), list -> {
+            adapter.submitList(list);
+        });
+    }
+
+    private void setListeners() {
+        adapter.favoriteInterface = news -> {
+            viewModel.setFavoriteNews(news);
+        };
     }
 
     @Override

@@ -17,6 +17,9 @@ public interface FavoriteDao {
     @Query("SELECT * FROM News")
     LiveData<List<News>> getFavoriteNews();
 
+    @Query("SELECT id FROM News")
+    List<Integer> getFavoriteId();
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insert(News news);
 

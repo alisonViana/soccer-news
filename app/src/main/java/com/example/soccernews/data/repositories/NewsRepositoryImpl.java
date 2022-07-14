@@ -21,6 +21,11 @@ public class NewsRepositoryImpl implements NewsRepository {
     }
 
     @Override
+    public List<Integer> getFavoriteId() {
+        return dao.getFavoriteId();
+    }
+
+    @Override
     public void setFavoriteNews(News news) {
         dao.insert(news);
     }

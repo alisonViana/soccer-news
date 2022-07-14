@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.soccernews.databinding.FragmentHomeBinding;
 import com.example.soccernews.ui.NewsListAdapter;
+import com.google.android.material.snackbar.Snackbar;
 
 public class HomeFragment extends Fragment {
 
@@ -43,6 +44,20 @@ public class HomeFragment extends Fragment {
         adapter.favoriteInterface = news -> {
             viewModel.setFavoriteNews(news);
         };
+        viewModel.getState().observe(getViewLifecycleOwner(), state -> {
+            switch (state) {
+                case DOING:
+                    binding.srlNews.setRefreshing(true);
+                    break;
+                case DONE:
+                    binding.srlNews.setRefreshing(false);
+                    break;
+                case ERROR:
+                    binding.srlNews.setRefreshing(false);
+                    Snackbar.make(binding.srlNews, "Network error", Snackbar.LENGTH_SHORT).show();
+            }
+        });
+            binding.srlNews.setOnRefreshListener(() -> viewModel.refreshNews());
     }
 
     @Override

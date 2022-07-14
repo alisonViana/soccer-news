@@ -8,6 +8,7 @@ import java.util.List;
 
 public interface NewsRepository {
     LiveData<List<News>> getFavoriteNews();
+    List<Integer> getFavoriteId();
     void setFavoriteNews(News news);
     void removeFavoriteNews(News news);
 }

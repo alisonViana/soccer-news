@@ -6,10 +6,12 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.soccernews.R;
 import com.example.soccernews.data.model.News;
 import com.example.soccernews.databinding.NewsItemBinding;
 import com.squareup.picasso.Picasso;
@@ -46,8 +48,14 @@ public class NewsListAdapter extends ListAdapter<News, NewsListAdapter.ViewHolde
         }
 
         void bind(News item){
+            int color;
+
             binding.tvTitle.setText(item.getTitle());
             binding.tvBody.setText(item.getDescription());
+
+            color = item.getFavorite() ? R.color.red : R.color.black;
+            binding.ivFavorite.setColorFilter(
+                    ContextCompat.getColor(binding.ivFavorite.getContext(), color));
 
             Picasso.get()
                     .load(item.getImage())
@@ -59,16 +67,17 @@ public class NewsListAdapter extends ListAdapter<News, NewsListAdapter.ViewHolde
                 intent.setData(Uri.parse(item.getLink()));
                 itemView.getContext().startActivity(intent);
             });
-            binding.ibShare.setOnClickListener(view -> {
+            binding.ivShare.setOnClickListener(view -> {
                 Intent intent = new Intent(Intent.ACTION_SEND);
                 intent.setType("text/plain");
                 intent.putExtra(Intent.EXTRA_TITLE, item.getTitle());
                 intent.putExtra(Intent.EXTRA_TEXT, item.getLink());
                 itemView.getContext().startActivity(Intent.createChooser(intent, "Share"));
             });
-            binding.ibFavorite.setOnClickListener(view -> {
+            binding.ivFavorite.setOnClickListener(view -> {
                 item.setFavorite(!item.getFavorite());
                 favoriteInterface.favoriteListener(item);
+                notifyItemChanged(getAdapterPosition());
             });
 
         }

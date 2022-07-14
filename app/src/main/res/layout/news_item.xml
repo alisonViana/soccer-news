@@ -60,28 +60,32 @@
             android:text="@string/label_open_link"
             />
 
-        <ImageButton
-            android:id="@+id/ib_favorite"
+        <ImageView
+            android:id="@+id/iv_favorite"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="@id/btn_open_link"
             app:layout_constraintBottom_toBottomOf="@id/btn_open_link"
-            app:layout_constraintEnd_toStartOf="@id/ib_share"
-            android:src="@drawable/ic_favorite"
+            app:layout_constraintEnd_toStartOf="@id/iv_share"
             android:layout_marginEnd="@dimen/margin"
-            android:background="?attr/actionBarItemBackground"
+            android:src="@drawable/ic_favorite"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:focusable="true"
             android:contentDescription="@string/descr_favorite_button"
             />
 
-        <ImageButton
-            android:id="@+id/ib_share"
+        <ImageView
+            android:id="@+id/iv_share"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="@id/ib_favorite"
-            app:layout_constraintBottom_toBottomOf="@id/ib_favorite"
+            app:layout_constraintTop_toTopOf="@id/iv_favorite"
+            app:layout_constraintBottom_toBottomOf="@id/iv_favorite"
             app:layout_constraintEnd_toEndOf="parent"
             android:src="@drawable/ic_share"
-            android:background="?attr/actionBarItemBackground"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:focusable="true"
             android:contentDescription="@string/descr_share_button" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,14 +11,22 @@ import com.example.soccernews.data.services.FavoriteDao;
 
 @Database(entities = {News.class}, version = 1)
 public abstract class FavoriteDB extends RoomDatabase {
+
     public abstract FavoriteDao dao();
+    static FavoriteDB INSTANCE = null;
 
     public static FavoriteDB getInstance(Context context) {
 
-        return Room.databaseBuilder(
-                context.getApplicationContext(),
-                FavoriteDB.class,
-                "favorite-news-db").build();
+        if (INSTANCE == null) {
+            FavoriteDB instance = Room.databaseBuilder(
+                    context.getApplicationContext(),
+                    FavoriteDB.class,
+                    "favorite-news-db").build();
+            INSTANCE = instance;
+            return instance;
+        } else {
+            return INSTANCE;
+        }
 
     }
 }

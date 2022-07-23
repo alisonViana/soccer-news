@@ -8,7 +8,9 @@ import viana.alison.soccernews.data.repository.NewsRepository
 class GetAllNewsUseCase(
     private val repository: NewsRepository
 ) : UseCase.NoParam<List<News>>() {
+
     override suspend fun execute(): Flow<List<News>> {
         return repository.getAllNews()
     }
+
 }

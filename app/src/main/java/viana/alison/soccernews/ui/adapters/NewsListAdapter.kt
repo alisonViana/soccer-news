@@ -17,7 +17,7 @@ class NewsListAdapter : ListAdapter<News, NewsListAdapter.ViewHolder>(DiffCallBa
 
     var favoriteButtonListener: (News) -> Unit = {}
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsListAdapter.ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val binding = ItemNewsBinding.inflate(inflater, parent, false)
 

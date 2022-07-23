@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -65,9 +66,9 @@ dependencies {
     implementation "io.insert-koin:koin-androidx-navigation:3.2.0"
 
     // Room database https://developer.android.com/training/data-storage/room
-    implementation "androidx.room:room-runtime:2.4.2"
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    annotationProcessor "androidx.room:room-compiler:2.4.2"
+    // This dependencies fix the error FavoriteDB_Impl does not exist
+    implementation "androidx.room:room-ktx:2.4.2"
+    kapt "androidx.room:room-compiler:2.4.2"
 
     // coroutines @see https://developer.android.com/kotlin/coroutines
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4'

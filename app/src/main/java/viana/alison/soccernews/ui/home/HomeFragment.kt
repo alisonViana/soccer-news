@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import viana.alison.soccernews.databinding.FragmentHomeBinding
+import viana.alison.soccernews.presentation.HomeViewModel
 
 class HomeFragment : Fragment() {
 

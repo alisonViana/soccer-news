@@ -4,11 +4,13 @@ import android.util.Log
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
+import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.loadKoinModules
 import org.koin.core.module.Module
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import viana.alison.soccernews.data.database.FavoriteDB
 import viana.alison.soccernews.data.repository.NewsRepository
 import viana.alison.soccernews.data.repository.NewsRepositoryImp
 import viana.alison.soccernews.data.service.SoccerNewsApi
@@ -17,12 +19,19 @@ object DataModules {
 
     fun load() {
         loadKoinModules(networkModule()
-                + repositoryModule())
+                + repositoryModule()
+                + daoModule())
     }
 
     private fun repositoryModule(): Module {
         return module {
-            single<NewsRepository> { NewsRepositoryImp(get()) }
+            single<NewsRepository> { NewsRepositoryImp(get(), get()) }
+        }
+    }
+
+    private fun daoModule(): Module {
+        return module {
+            single { FavoriteDB.getInstance(androidContext()).favoriteDao }
         }
     }
 

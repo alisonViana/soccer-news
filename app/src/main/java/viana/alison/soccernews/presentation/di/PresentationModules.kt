@@ -15,7 +15,7 @@ object PresentationModules {
 
     private fun viewModelModules(): Module {
         return module {
-            viewModel { HomeViewModel() }
+            viewModel { HomeViewModel(get()) }
             viewModel { FavoritesViewModel() }
         }
     }

@@ -9,11 +9,12 @@ import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.launch
 import viana.alison.soccernews.data.model.News
-import viana.alison.soccernews.data.repository.NewsRepository
 import viana.alison.soccernews.domain.GetAllNewsUseCase
+import viana.alison.soccernews.domain.SetFavoriteUseCase
 
 class HomeViewModel(
-    private val getAllNewsUseCase: GetAllNewsUseCase
+    private val getAllNewsUseCase: GetAllNewsUseCase,
+    private val setFavoriteUseCase: SetFavoriteUseCase
 ) : ViewModel() {
 
     private val _newsState = MutableLiveData<State>()
@@ -34,11 +35,11 @@ class HomeViewModel(
     /*
     fun getFavoriteIds(): LiveData<List<Int>> {
         return repository.getFavoriteId().asLiveData()
-    }
+    } */
 
     fun setFavoriteNews(news: News) = viewModelScope.launch {
         setFavoriteUseCase.execute(news)
-    }*/
+    }
 
     fun test() {
         Log.i("TAG", "Test")

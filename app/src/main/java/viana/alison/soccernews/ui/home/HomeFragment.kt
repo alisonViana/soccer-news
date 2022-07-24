@@ -55,10 +55,10 @@ class HomeFragment : Fragment() {
         binding.srlNews.setOnRefreshListener {
             viewModel.getNews()
         }
-        /*
+
         adapter.favoriteButtonListener = { news ->
             viewModel.setFavoriteNews(news)
-        }*/
+        }
 
     }
 

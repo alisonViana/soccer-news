@@ -67,8 +67,8 @@ dependencies {
 
     // Room database https://developer.android.com/training/data-storage/room
     // This dependencies fix the error FavoriteDB_Impl does not exist
-    implementation "androidx.room:room-ktx:2.4.2"
-    kapt "androidx.room:room-compiler:2.4.2"
+    implementation "androidx.room:room-ktx:2.5.0-alpha02"
+    kapt "androidx.room:room-compiler:2.5.0-alpha02"
 
     // coroutines @see https://developer.android.com/kotlin/coroutines
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4'

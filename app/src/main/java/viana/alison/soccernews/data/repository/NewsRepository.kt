@@ -5,4 +5,7 @@ import viana.alison.soccernews.data.model.News
 
 interface NewsRepository {
     suspend fun getAllNews(): Flow<List<News>>
+    fun getFavoritesNews(): Flow<List<News>>
+    suspend fun insertFavoriteNews(news: News)
+    suspend fun deleteFavoriteNews(news: News)
 }

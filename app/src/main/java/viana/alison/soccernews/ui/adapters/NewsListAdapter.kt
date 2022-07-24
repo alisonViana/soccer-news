@@ -37,9 +37,7 @@ class NewsListAdapter : ListAdapter<News, NewsListAdapter.ViewHolder>(DiffCallBa
             binding.tvTitle.text = item.title
             binding.tvBody.text = item.description
 
-            val color = if (item.favorite) R.color.red else R.color.black
-            binding.ivFavorite.setColorFilter(
-                ContextCompat.getColor(binding.ivFavorite.context, color))
+            itemColor(item.favorite)
 
             Picasso.get()
                 .load(item.image)
@@ -62,11 +60,19 @@ class NewsListAdapter : ListAdapter<News, NewsListAdapter.ViewHolder>(DiffCallBa
             }
             binding.ivFavorite.setOnClickListener {
                 item.favorite = !item.favorite
+                itemColor(item.favorite)
                 favoriteButtonListener(item)
-                notifyItemChanged(adapterPosition)
+                notifyItemChanged(layoutPosition)
             }
 
         }
+
+        private fun itemColor(isFavorite: Boolean) {
+            val color = if (isFavorite) R.color.red else R.color.black
+            binding.ivFavorite.setColorFilter(
+                ContextCompat.getColor(binding.ivFavorite.context, color))
+        }
+
     }
 
 }

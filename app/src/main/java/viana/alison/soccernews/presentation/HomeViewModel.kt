@@ -10,11 +10,11 @@ import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.launch
 import viana.alison.soccernews.data.model.News
 import viana.alison.soccernews.domain.GetAllNewsUseCase
-import viana.alison.soccernews.domain.SetFavoriteUseCase
+import viana.alison.soccernews.domain.SetFavoritesUseCase
 
 class HomeViewModel(
     private val getAllNewsUseCase: GetAllNewsUseCase,
-    private val setFavoriteUseCase: SetFavoriteUseCase
+    private val setFavoritesUseCase: SetFavoritesUseCase
 ) : ViewModel() {
 
     private val _newsState = MutableLiveData<State>()
@@ -38,7 +38,7 @@ class HomeViewModel(
     } */
 
     fun setFavoriteNews(news: News) = viewModelScope.launch {
-        setFavoriteUseCase.execute(news)
+        setFavoritesUseCase.execute(news)
     }
 
     fun test() {

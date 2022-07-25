@@ -8,7 +8,7 @@ import viana.alison.soccernews.data.model.News
 interface FavoriteDao {
 
     @Query("SELECT * FROM News")
-    fun getAll(): Flow<List<News>>
+    fun getFavoriteNews(): Flow<List<News>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(news: News)

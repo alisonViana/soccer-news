@@ -25,13 +25,13 @@ class HomeFragment : Fragment() {
 
         binding.rvNews.adapter = adapter
 
-        getNewsList()
+        getNews()
         setListeners()
 
         return binding.root
     }
 
-    private fun getNewsList() {
+    private fun getNews() {
         viewModel.test()
         viewModel.getNews()
     }

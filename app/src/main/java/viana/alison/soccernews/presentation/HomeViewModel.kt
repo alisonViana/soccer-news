@@ -38,7 +38,7 @@ class HomeViewModel(
     } */
 
     fun setFavoriteNews(news: News) = viewModelScope.launch {
-        setFavoritesUseCase.execute(news)
+        setFavoritesUseCase.invoke(news)
     }
 
     fun test() {

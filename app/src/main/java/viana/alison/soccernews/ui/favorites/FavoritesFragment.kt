@@ -23,32 +23,18 @@ class FavoritesFragment : Fragment() {
 
         binding.rvNews.adapter = adapter
 
-        getFavoriteNews()
         setListeners()
 
         return binding.root
-    }
-
-    private fun getFavoriteNews() {
-        //viewModel.getFavorites()
     }
 
     private fun setListeners() {
         viewModel.getFavorites().observe(viewLifecycleOwner) {
             adapter.submitList(it)
         }
-        /*viewModel.favoritesState.observe(viewLifecycleOwner) {
-            when (it) {
-                FavoritesViewModel.State.Loading -> {}
-                is FavoritesViewModel.State.Success -> {
-                    Log.i("TAG", "room success")
-                    adapter.submitList(it.list)
-                }
-                is FavoritesViewModel.State.Error -> {
-                    Snackbar.make(binding.rvNews, it.error.message.toString(), Snackbar.LENGTH_SHORT).show()
-                }
-            }
-        }*/
+        adapter.favoriteButtonListener = { news ->
+            viewModel.setFavoriteNews(news)
+        }
     }
 
 }

@@ -1,6 +1,7 @@
 package viana.alison.soccernews.data.repository
 
 import android.os.RemoteException
+import android.util.Log
 import kotlinx.coroutines.flow.flow
 import retrofit2.HttpException
 import viana.alison.soccernews.data.model.News
@@ -26,16 +27,18 @@ class NewsRepositoryImp(
     override suspend fun insertFavoriteNews(news: News) {
         try {
             dao.insert(news)
+            Log.i("TAG", "FavoriteDB: insert success")
         } catch (ex: Exception) {
-            // TODO exception handle
+            Log.i("TAG", "FavoriteDB: insert error - ${ex.message}")
         }
     }
 
     override suspend fun deleteFavoriteNews(news: News) {
         try {
             dao.delete(news)
+            Log.i("TAG", "FavoriteDB: delete success")
         } catch (ex: Exception) {
-            // TODO exception handle
+            Log.i("TAG", "FavoriteDB: delete error - ${ex.message}")
         }
     }
 

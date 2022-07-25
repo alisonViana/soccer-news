@@ -8,9 +8,9 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import viana.alison.soccernews.data.model.News
 import com.squareup.picasso.Picasso
 import viana.alison.soccernews.R
+import viana.alison.soccernews.data.model.News
 import viana.alison.soccernews.databinding.ItemNewsBinding
 
 class NewsListAdapter : ListAdapter<News, NewsListAdapter.ViewHolder>(DiffCallBack()) {
@@ -62,7 +62,6 @@ class NewsListAdapter : ListAdapter<News, NewsListAdapter.ViewHolder>(DiffCallBa
                 item.favorite = !item.favorite
                 itemColor(item.favorite)
                 favoriteButtonListener(item)
-                notifyItemChanged(layoutPosition)
             }
 
         }

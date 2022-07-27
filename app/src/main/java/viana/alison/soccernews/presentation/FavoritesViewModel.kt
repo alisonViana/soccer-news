@@ -13,7 +13,7 @@ class FavoritesViewModel(
     private val setFavoritesUseCase: SetFavoritesUseCase
 ) : ViewModel() {
 
-    fun getFavorites() = getFavoritesUseCase.getFavoritesNews().asLiveData()
+    fun getFavorites() = getFavoritesUseCase.getFavoriteNews().asLiveData()
 
     fun setFavoriteNews(news: News) = viewModelScope.launch {
         setFavoritesUseCase.execute(news)

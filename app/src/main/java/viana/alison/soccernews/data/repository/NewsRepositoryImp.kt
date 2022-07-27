@@ -7,6 +7,7 @@ import retrofit2.HttpException
 import viana.alison.soccernews.data.model.News
 import viana.alison.soccernews.data.service.FavoriteDao
 import viana.alison.soccernews.data.service.SoccerNewsApi
+import viana.alison.soccernews.domain.repository.NewsRepository
 
 class NewsRepositoryImp(
     private val newsApi: SoccerNewsApi,
@@ -24,10 +25,11 @@ class NewsRepositoryImp(
 
     override fun getFavoriteNews() = dao.getFavoriteNews()
 
+    override fun getFavoriteIds() = dao.getFavoriteIds()
+
     override suspend fun insertFavoriteNews(news: News) {
         try {
             dao.insert(news)
-            Log.i("TAG", "FavoriteDB: insert success")
         } catch (ex: Exception) {
             Log.i("TAG", "FavoriteDB: insert error - ${ex.message}")
         }
@@ -36,7 +38,6 @@ class NewsRepositoryImp(
     override suspend fun deleteFavoriteNews(news: News) {
         try {
             dao.delete(news)
-            Log.i("TAG", "FavoriteDB: delete success")
         } catch (ex: Exception) {
             Log.i("TAG", "FavoriteDB: delete error - ${ex.message}")
         }

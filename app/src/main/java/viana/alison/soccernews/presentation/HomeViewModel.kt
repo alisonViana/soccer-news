@@ -1,19 +1,17 @@
 package viana.alison.soccernews.presentation
 
-import android.util.Log
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.launch
 import viana.alison.soccernews.data.model.News
 import viana.alison.soccernews.domain.GetAllNewsUseCase
+import viana.alison.soccernews.domain.GetFavoritesUseCase
 import viana.alison.soccernews.domain.SetFavoritesUseCase
 
 class HomeViewModel(
     private val getAllNewsUseCase: GetAllNewsUseCase,
+    private val getFavoritesUseCase: GetFavoritesUseCase,
     private val setFavoritesUseCase: SetFavoritesUseCase
 ) : ViewModel() {
 
@@ -32,19 +30,11 @@ class HomeViewModel(
             }
     }
 
-    /*
-    fun getFavoriteIds(): LiveData<List<Int>> {
-        return repository.getFavoriteId().asLiveData()
-    } */
+    fun getFavoriteIds() = getFavoritesUseCase.getFavoriteIds().asLiveData()
 
     fun setFavoriteNews(news: News) = viewModelScope.launch {
         setFavoritesUseCase.invoke(news)
     }
-
-    fun test() {
-        Log.i("TAG", "Test")
-    }
-
 
     sealed class State {
         object Loading: State()

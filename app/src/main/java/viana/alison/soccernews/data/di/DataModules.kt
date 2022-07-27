@@ -11,7 +11,7 @@ import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import viana.alison.soccernews.data.database.FavoriteDB
-import viana.alison.soccernews.data.repository.NewsRepository
+import viana.alison.soccernews.domain.repository.NewsRepository
 import viana.alison.soccernews.data.repository.NewsRepositoryImp
 import viana.alison.soccernews.data.service.SoccerNewsApi
 

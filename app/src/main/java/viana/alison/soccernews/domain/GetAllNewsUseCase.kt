@@ -3,7 +3,7 @@ package viana.alison.soccernews.domain
 import kotlinx.coroutines.flow.Flow
 import viana.alison.soccernews.core.UseCase
 import viana.alison.soccernews.data.model.News
-import viana.alison.soccernews.data.repository.NewsRepository
+import viana.alison.soccernews.domain.repository.NewsRepository
 
 class GetAllNewsUseCase(
     private val repository: NewsRepository

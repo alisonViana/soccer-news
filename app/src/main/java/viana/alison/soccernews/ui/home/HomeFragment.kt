@@ -16,7 +16,6 @@ class HomeFragment : Fragment() {
     private val binding by lazy { FragmentHomeBinding.inflate(layoutInflater) }
     private val adapter by lazy { NewsListAdapter() }
     private val viewModel by viewModel<HomeViewModel>()
-    lateinit var idsList: List<Int>
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -38,7 +37,7 @@ class HomeFragment : Fragment() {
 
     private fun setListeners() {
         viewModel.getFavoriteIds().observe(viewLifecycleOwner) {
-            idsList = it
+            viewModel.idsList = it
         }
         viewModel.newsState.observe(viewLifecycleOwner) {
             when (it) {
@@ -49,7 +48,7 @@ class HomeFragment : Fragment() {
                     binding.srlNews.isRefreshing = false
                     val list = it.list
                     list.forEach { news ->
-                        if (idsList.contains(news.id)) news.favorite = true
+                        if (viewModel.idsList.contains(news.id)) news.favorite = true
                     }
                     adapter.submitList(list)
                 }

@@ -17,6 +17,7 @@ class HomeViewModel(
 
     private val _newsState = MutableLiveData<State>()
     val newsState: LiveData<State> = _newsState
+    lateinit var idsList: List<Int>
 
     fun getNews() = viewModelScope.launch {
         getAllNewsUseCase.execute()

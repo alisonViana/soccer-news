@@ -1,6 +1,6 @@
 # SOCCER NEWS <img src="https://github.com/alisonViana/soccer-news/blob/refactor-kotlin/images/icon.png" alt="ícone" width="48" height="48" align="left"/>
 
-*[ O projeto foi totalmente refeito usando Kotlin e pode ser acessado [aqui](https://github.com/alisonViana/soccer-news/tree/refactor-kotlin). Foram feitas alterações arquiteturais e a implementação de frameworks. O projeto em Kotlin se tornou, por diversos motivos, a principal versão, sendo ela o foco para atualizações e correções. Não deixe de conferir! ]*
+##### *O projeto foi totalmente refeito usando Kotlin e pode ser acessado [aqui](https://github.com/alisonViana/soccer-news/tree/refactor-kotlin). Foram feitas alterações arquiteturais e a refatorarameworksrameworksção de códigos. O projeto em Kotlin se tornou, por diversos motivos, a principal versão, sendo ela o foco para atualizações e correções. Não deixe de conferir!*
 
 Olá, este é o repositório do meu aplicativo Soccer News, projeto desenvolvido durante o Santander Bootcamp Mobile Developer oferecido pela [DIO](https://web.dio.me/) em parceria com o Santander!
 

@@ -4,7 +4,18 @@ Olá, este é o repositório da versão em Kotlin do meu aplicativo Soccer News,
 oferecido pela [DIO](https://web.dio.me/) em parceria com o Santander!
 
 A proposta do aplicativo é se tornar uma central de notícias esportivas com foco no universo do futebol feminino, permitindo favoritar as 
-notícias que mais gostou e acessá-las rapidamente!
+notícias que mais gostou e acessá-las rapidamente ou compartilhá-las onde quiser!
+
+ <p align="center"> 
+     <img src="https://github.com/alisonViana/soccer-news/blob/refactor-kotlin/images/fragment_news.png" alt="Tela inicial" width="240" height="520" />
+     <img src="https://github.com/alisonViana/soccer-news/blob/refactor-kotlin/images/fragment_favorites.png" alt="Tela favoritos" width="240" height="520" />
+     <img src="https://github.com/alisonViana/soccer-news/blob/refactor-kotlin/images/share.png" alt="Tela compartilhamento" width="240" height="520" /> 
+</p>
+
+<p align="center">
+     [ Imagens: tela inicial, tela de favoritos e tela de compartilhamento]
+</p>
+
 
 As notícias são provenientes de um repositório do GitHub criado especialmente para este projeto, que utilizando o GitHub Pages, simula uma API Rest, 
 da qual o app consome os dados.
